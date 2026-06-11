@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "Key": "i18n-demo-title",
+      "Text": "Internationalization demo"
+    },
+    {
+      "Key": "i18n-demo-greeting",
+      "Text": "Hello {name}, welcome! This text comes from placeholders.json."
+    },
+    {
+      "Key": "i18n-demo-description",
+      "Text": "Authors manage translations in a placeholders spreadsheet. Blocks read strings by key for the current locale."
+    },
+    {
+      "Key": "i18n-demo-cta",
+      "Text": "Learn more"
+    },
+    {
+      "Key": "i18n-demo-locale-label",
+      "Text": "Locale"
+    }
+  ]
+}

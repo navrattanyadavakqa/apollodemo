@@ -1,0 +1,27 @@
+.i18n-demo .i18n-demo-panel {
+  padding: 24px;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background-color: var(--background-color);
+}
+
+.i18n-demo .i18n-demo-locale {
+  margin: 0 0 8px;
+  font-size: var(--body-font-size-s);
+  color: var(--text-color, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.i18n-demo .i18n-demo-title {
+  margin: 0 0 12px;
+}
+
+.i18n-demo .i18n-demo-greeting,
+.i18n-demo .i18n-demo-description {
+  margin: 0 0 12px;
+}
+
+.i18n-demo .i18n-demo-actions {
+  margin: 16px 0 0;
+}
