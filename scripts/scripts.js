@@ -10,6 +10,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import { getLanguagePath } from './placeholders.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -127,7 +128,8 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
-  document.documentElement.lang = 'en';
+  const lang = getLanguagePath();
+  document.documentElement.lang = lang === 'default' ? 'en' : lang.slice(1);
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {

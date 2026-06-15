@@ -214,5 +214,107 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "i18n-demo",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "guestName",
+        "label": "Guest name (optional)",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "product",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "details_productId",
+        "label": "Product ID",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "details_title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "name": "details_titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "details_description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "details_price",
+        "label": "Price",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image 1",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image 1 alt text",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image2",
+        "label": "Image 2",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image2Alt",
+        "label": "Image 2 alt text",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image3",
+        "label": "Image 3",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "image3Alt",
+        "label": "Image 3 alt text",
+        "value": ""
+      }
+    ]
   }
 ]
