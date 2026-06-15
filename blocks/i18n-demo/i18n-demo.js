@@ -1,4 +1,4 @@
-import { fetchPlaceholders, getLanguagePath } from '../../scripts/placeholders.js';
+import { fetchPlaceholders } from '../../scripts/placeholders.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 function applyName(template, name) {
@@ -19,8 +19,7 @@ function applyName(template, name) {
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
-  const lang = getLanguagePath();
-  const placeholders = await fetchPlaceholders(lang);
+  const placeholders = await fetchPlaceholders();
   const {
     i18nDemoTitle,
     i18nDemoGreeting,
