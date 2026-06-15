@@ -20,6 +20,7 @@ function applyName(template, name) {
  */
 export default async function decorate(block) {
   const placeholders = await fetchPlaceholders();
+  console.log(placeholders);
   const {
     i18nDemoTitle,
     i18nDemoGreeting,
