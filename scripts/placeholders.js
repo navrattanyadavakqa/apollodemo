@@ -23,6 +23,7 @@ export async function fetchPlaceholders(prefix = 'en-in') {
   if (!window.placeholders[prefix]) {
     window.placeholders[prefix] = new Promise((resolve) => {
       console.log(prefix);
+      console.log(`${prefix === 'default' ? '' : prefix}/placeholders.json`);
       fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
         .then((resp) => {
           if (resp.ok) {
