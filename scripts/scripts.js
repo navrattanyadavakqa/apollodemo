@@ -130,6 +130,7 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   //const lang = getLanguagePath();
   //document.documentElement.lang = lang === 'default' ? 'en' : lang;
+  document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
