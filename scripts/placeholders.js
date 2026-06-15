@@ -18,7 +18,7 @@ import { toCamelCase } from './aem.js';
  * @returns {object} Window placeholders object
  */
 // eslint-disable-next-line import/prefer-default-export
-export async function fetchPlaceholders(prefix = 'default') {
+export async function fetchPlaceholders(prefix = 'en-in') {
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
     window.placeholders[prefix] = new Promise((resolve) => {
