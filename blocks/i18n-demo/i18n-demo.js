@@ -1,4 +1,4 @@
-import { fetchPlaceholders } from '../../scripts/placeholders.js';
+import { fetchPlaceholders, getLanguagePath } from '../../scripts/placeholders.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 function applyName(template, name) {
@@ -19,8 +19,8 @@ function applyName(template, name) {
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
-  const placeholders = await fetchPlaceholders();
-  console.log(placeholders);
+  const lang = getLanguagePath();
+  const placeholders = await fetchPlaceholders(lang);
   const {
     i18nDemoTitle,
     i18nDemoGreeting,
@@ -39,7 +39,7 @@ export default async function decorate(block) {
   const locale = document.createElement('p');
   locale.className = 'i18n-demo-locale';
   const localeLabel = i18nDemoLocaleLabel || 'Locale';
-  locale.textContent = localeLabel;
+  locale.textContent = `${localeLabel}: ${lang === 'default' ? 'en (default)' : lang.slice(1)}`;
 
   const title = document.createElement('h2');
   title.className = 'i18n-demo-title';

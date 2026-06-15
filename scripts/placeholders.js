@@ -13,38 +13,51 @@
 import { toCamelCase } from './aem.js';
 
 /**
+ * Resolves the locale folder from the page path (e.g. /en-in/home -> /en-in).
+ * @returns {string} Locale path prefix or 'default' for site root
+ */
+export function getLanguagePath() {
+  const segments = window.location.pathname
+    .split('/')
+    .filter((segment) => segment && !segment.includes('.'));
+  const [first] = segments;
+  if (first && /^[a-z]{2}(-[a-z]{2})?$/i.test(first)) {
+    return `/${first}`;
+  }
+  return 'default';
+}
+
+/**
  * Gets placeholders object.
- * @param {string} [prefix] Location of placeholders
- * @returns {object} Window placeholders object
+ * @param {string} [prefix] Location of placeholders; defaults to locale from pathname
+ * @returns {Promise<object>} Placeholders keyed in camelCase
  */
 // eslint-disable-next-line import/prefer-default-export
-export async function fetchPlaceholders(prefix = '/en-in') {
+export async function fetchPlaceholders(prefix = getLanguagePath()) {
   window.placeholders = window.placeholders || {};
   if (!window.placeholders[prefix]) {
     window.placeholders[prefix] = new Promise((resolve) => {
-      console.log(prefix);
-      console.log(`${prefix === 'default' ? '' : prefix}/placeholders.json`);
-      fetch(`${prefix === 'default' ? '' : prefix}/placeholders.json`)
-        .then((resp) => {
-          if (resp.ok) {
-            return resp.json();
-          }
-          return {};
-        }).then((json) => {
+      const { codeBasePath } = window.hlx;
+      const url = prefix === 'default'
+        ? `${codeBasePath}/placeholders.json`
+        : `${codeBasePath}${prefix}/placeholders.json`;
+      fetch(url)
+        .then((resp) => (resp.ok ? resp.json() : {}))
+        .then((json) => {
           const placeholders = {};
           json.data
-            .filter((placeholder) => placeholder.Key)
+            ?.filter((placeholder) => placeholder.Key)
             .forEach((placeholder) => {
               placeholders[toCamelCase(placeholder.Key)] = placeholder.Text;
             });
           window.placeholders[prefix] = placeholders;
           resolve(window.placeholders[prefix]);
-        }).catch(() => {
-          // error loading placeholders
+        })
+        .catch(() => {
           window.placeholders[prefix] = {};
           resolve(window.placeholders[prefix]);
         });
     });
   }
-  return window.placeholders[`${prefix}`];
+  return window.placeholders[prefix];
 }
