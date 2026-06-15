@@ -38,7 +38,7 @@ export default async function decorate(block) {
   const locale = document.createElement('p');
   locale.className = 'i18n-demo-locale';
   const localeLabel = i18nDemoLocaleLabel || 'Locale';
-  locale.textContent = `${localeLabel}: ${lang === 'default' ? 'en (default)' : lang}`;
+  locale.textContent = localeLabel;
 
   const title = document.createElement('h2');
   title.className = 'i18n-demo-title';
